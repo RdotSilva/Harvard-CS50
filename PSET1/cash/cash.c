@@ -2,39 +2,39 @@
 #include <stdio.h>
 #include <math.h>
 
+#define QUARTER 25
+#define DIME 10
+#define NICKLE 5
+#define PENNY 1
+
 float get_change(string prompt);
 
 int main(void)
 {
-    int coins, quarter, dime, nickle, penny;
-    coins = 0;
-    quarter = 25;
-    dime = 10;
-    nickle = 5;
-    penny = 1;
+    int coins = 0;
     
     float change = get_change("How much change: ");
 
     int rounded = round(change * 100);
 
-    while (rounded / quarter > 0)
+    while (rounded / QUARTER > 0)
     {
-        rounded = rounded - quarter;
+        rounded = rounded - QUARTER;
         coins = coins + 1;
     }
-    while (rounded / dime > 0)
+    while (rounded / DIME > 0)
     {
-        rounded = rounded - dime;
+        rounded = rounded - DIME;
         coins = coins + 1;
     }
-    while (rounded / nickle > 0)
+    while (rounded / NICKLE > 0)
     {
-        rounded = rounded - nickle;
+        rounded = rounded - NICKLE;
         coins = coins + 1;
     }
-    while (rounded / penny > 0)
+    while (rounded / PENNY > 0)
     {
-        rounded = rounded - penny;
+        rounded = rounded - PENNY;
         coins = coins + 1;
     }
     

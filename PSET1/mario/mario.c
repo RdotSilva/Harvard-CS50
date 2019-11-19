@@ -9,7 +9,6 @@ void print_newline(void);
 
 int main(void)
 {
-    // Ask the user for height.
     int height = get_height("Enter a number between 1 and 8: ");
     int x, y, z;
 
@@ -17,13 +16,13 @@ int main(void)
     {
         for (y = 0 ; y < height - x; y ++)
         {
-            print_space();
+            printf(" ");
         }
         for (z = 0; z < height - y; z ++)
         {
-            print_hash();
+            printf("#");
         }
-        print_newline();
+        printf("\n");
     }
 }
 
@@ -36,19 +35,4 @@ int get_height(string prompt)
     }
     while (n < 1 || n > 8);
     return n;
-}
-
-void print_hash(void)
-{
-    printf("#");
-}
-
-void print_space(void)
-{
-    printf(" ");
-}
-
-void print_newline(void)
-{
-    printf("\n");
 }

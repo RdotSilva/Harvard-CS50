@@ -1,0 +1,39 @@
+.navbar {
+    background-color: #afdbab;
+}
+
+body {
+    background-color: #e5f2e4;
+    text-align: center;
+}
+#mainTitle {
+    font-size: 80px;
+    margin: 0px auto;
+    display: block;
+}
+.paraText {
+    margin: 50px;
+    display: block;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+#subscribe {
+    font-size: 20px;
+
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #474f46;
+  color: white;
+}

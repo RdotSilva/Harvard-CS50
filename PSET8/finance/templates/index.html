@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Current Stocks</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Shares Owned</th>
+                <th scope="col">Current Price</th>
+                <th scope="col">Total Value</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td>Current Balance: {{userCash | usd}}</td>
+                <td>Current Balance Including Stocks: {{cashWithStocks | usd}}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for stock in stocks %}
+            <tr>
+                <td>{{stock["symbol"]}}</td>
+                <td>{{stock["total_shares"]}}</td>
+                <td>{{currentStockPrices[stock.symbol]["price"] | usd}}</td>
+                <td>{{(currentStockPrices[stock.symbol]["price"] * stock["total_shares"]) | usd}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

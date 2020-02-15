@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">History</h1>
+    <p>A negative share number in the "shares traded" column represents the selling of shares.</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Shares Traded</th>
+                <th scope="col">Purchase/Sell Price</th>
+                <th scope="col">Transaction Date</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{transaction["symbol"]}}</td>
+                <td>{{transaction["shares"]}}</td>
+                <td>{{transaction["price"] | usd}}</td>
+                <td>{{transaction["datetime"]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

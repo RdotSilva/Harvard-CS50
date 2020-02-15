@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+    <p id="enterInfo">Please enter your information below.</p>
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" name="userForm" onsubmit="return formValidator()" method="post">
+        <div class="form-group row">
+            <div class="col-sm-3 my-1">
+                <label class="formTitle" for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" aria-describedby="dataHelp" placeholder="Enter name">
+                <small id="dataHelp" class="form-text text-muted">Your name will be private.</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3 my-1">
+                <label class="formTitle" for="exampleFormControlSelect1">Gender Selection</label>
+                <select class="form-control" name="gender" id="genderSelector">
+                    <option value="selectGender" selected="selected">Select Your Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group form-check">
+            <input class="form-check-input" type="checkbox" value="" name="age" id="overAge">
+            <label class="form-check-label" id="ageLabel" for="overAge">
+                Over 18?
+            </label>
+        </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" id="submitButton" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+        function formValidator() {
+            // This is used for form validation. Checks if user fills out name and gender.
+            if (document.getElementById("name").value == "") {
+                alert("Name must be filled out")
+                return false;
+            }
+
+            if (document.getElementById("genderSelector").value == "selectGender") {
+                alert("Must select gender")
+                return false;
+            }
+
+            if (document.getElementById('overAge').checked == true) {
+                document.getElementById('overAge').value = "X";
+            }
+        }
+    </script>
+
+{% endblock %}

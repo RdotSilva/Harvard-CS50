@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">People</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Firstname</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Over 18</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in people %}
+            <tr>
+                <td>{{person[0]}}</td>
+                <td>{{person[1]}}</td>
+                <td>{{person[2]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
